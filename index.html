@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<style>
+
+* {
+  box-sizing: border-box;
+}
+    body {
+        background-color:aqua;
+        font-family: Verdana, Geneva, Tahoma, sans-serif
+    }
+    
+    .info {
+        text-align: center;
+    }
+
+    input {
+        height: 30px;
+        width: 200px;
+        border-radius: 10px;
+        border: none;
+    }
+
+    button {
+        height: 50px; 
+        width: 200px;
+        border: none;
+        background-color:black;
+        color: white;
+        border-radius: 10px;
+    }
+
+    .column {
+        float: left;
+        width: 50%;
+        padding: 10px;
+
+    }
+    
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+
+
+</style>
+<html>
+<head>
+<title><info>
+ <class="info/hockeyplayers.com></title>
+</head>
+<body onload = "reveals()">
+
+<div class = "info">
+<h1>Welcome to Hockey Players Information</h1>
+<p>The Best Hockey Players In The NHL</p>
+</div>
+
+<h3>Before you enter, Answer these 4 Questions Below: Reminder: don't cheat!</h3>
+<h4>If you get a question wrong, leave the website and don't return for 10 seconds or if you have thought of the correct answer, either one.</h4>
+<div class="row">
+<div class="column">
+<p>1.Type in the team that won the stanley cup in the 2020 season?</p>
+<input id = "q1" placeholder="Enter Answer Here" /> 
+
+<p>2. Who was the best Boston Bruins player of the 2020 season?</p>
+<input id = "q2" placeholder="Enter Answer Here" />
+
+<p>3. Who was the best hockey player in the 2020 season?</p>
+<input id = "q3" placeholder="Enter Answer Here" />
+
+<p>4. Who was the Boston Bruins player who licked another player in a game?</p>
+<input id = "q4" placeholder= "Hint: he is number 63" />
+
+
+<p></p>
+<button onclick = "getAnswer()">Submit</button>
+<p id = "ans1"></p>
+<p></p>
+<a href = "Main Page.html">
+    <button id = "questionsright">To move forward, press this button</button>
+</a>
+</div>
+
+
+
+
+
+
+<div class = "column">
+<img style = "width: 500px; height: 400px;" src = "Wayne Gretzky.jpg"/>
+
+</div>
+</div>
+</body>
+</html>
+
+<script>
+
+function reveals() {
+    document.getElementById('questionsright').style.display = 'none'
+
+}
+//Answer to #1 is Tampa Bay Lightning 
+//Answer to #2 is St. Louis Blues 
+//Answer to #3 is Connor Mcdavid
+//If we want to go to a new page: <a href> <button>Page 2</button> </a>
+function getAnswer() {
+var correctCount = 0
+var answerQ1 = document.getElementById("q1").value; 
+if (answerQ1 == "Tampa Bay Lightning" || answerQ1 == "tampa bay lightning" || 
+    answerQ1 == "Tampa bay lightning" || answerQ1 == "Tampa Bay lightning" ||
+    answerQ1 == "tampa bay Lightning" || answerQ1 == "tampa Bay lightning" ||
+    answerQ1 == "tampa Bay Lightning") {
+    correctCount = correctCount + 1; // Result
+}
+else {
+    alert("Question #1 is incorrect") 
+}
+var answerQ2 = document.getElementById("q2").value;
+if (answerQ2 == "Brad Marchand" || answerQ2 == "brad marchand"
+|| answerQ2  == "Brad marchand" || answerQ2 == "brad Marchand") { 
+    correctCount = correctCount + 1;
+}
+else {
+    alert("Question #2 is incorrect") 
+    
+}
+var answerQ3 = document.getElementById("q3").value;
+var capitalizeAnswerQ3 = answerQ3.toUpperCase()
+console.log(capitalizeAnswerQ3)
+if (capitalizeAnswerQ3 == "CONNOR MCDAVID") {
+    correctCount = correctCount + 1;
+}
+else {
+    alert("Question #3 is incorrect") 
+    
+}
+
+var answerQ4 = document.getElementById("q4").value;
+var capitalizeAnswerQ4 = answerQ4.toUpperCase()
+console.log(capitalizeAnswerQ4)
+if (capitalizeAnswerQ4 == "BRAD MARCHAND") {
+    correctCount = correctCount + 1;
+}
+else {
+    alert("Question #4 is incorrect")
+}
+
+
+
+if (correctCount == 4) {
+    document.getElementById("ans1").innerHTML = "You got all questions correct!"
+    document.getElementById('questionsright').style.display = 'block' //If we get all questions correct, then display the hidden button
+} 
+else {
+document.getElementById("ans1").innerHTML = "Access Denied! The number of correct answers: " + String(correctCount) + " Please read your answers correctly and look for mistakes"
+}
+
+}
+
+</script>
+
